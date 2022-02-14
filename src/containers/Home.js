@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import data from "../data.js";
 import { getWeather } from "../store/actions/weather";
+import { Button } from "reactstrap";
 
 function Home() {
   const dispatch = useDispatch();
@@ -14,18 +15,15 @@ function Home() {
     setWeatherData(weather);
   }, [weather]);
   console.log(weatherData);
-  // function getDayWeather() {
-  //   const dayWeather = weatherData.list;
-  //   return dayWeather;
-  // }
+
   const getWeatherData = () => {
     dispatch(getWeather());
   };
   return (
     <div>
-      Home container
-      {/* {JSON.stringify(weatherData.list[1].dt_txt)} */}
-      <button onClick={() => getWeatherData()}>Get weather</button>
+      <Button color="primary" onClick={() => getWeatherData()}>
+        Get weather
+      </Button>
       {weatherData.city && <h5>{weatherData.city.name}</h5>}
     </div>
   );
