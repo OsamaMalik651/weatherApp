@@ -2,15 +2,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import data from "../data.js";
-import newData from "../newData";
 import { getCity, getWeather } from "../store/actions/weather";
-
 import City from "../components/City.js";
 import DayCard from "../components/DayCard.js";
-import CityData from "../CityData.js";
-import "../styles/Home.css";
 import Search from "../components/Search.js";
+import "../styles/Home.css";
 
 function Home() {
   const dispatch = useDispatch();
@@ -33,10 +29,13 @@ function Home() {
     }
     setCurrentCity(cityForWeather);
   }, [city]);
-  const getWeatherData = (searchTerm) => {
-    dispatch(getCity(searchTerm));
-  };
 
+  const getWeatherData = (searchTerm) => {
+    if (searchTerm) {
+      dispatch(getCity(searchTerm));
+    }
+  };
+  console.log(weatherData);
   const dayElements = [];
   if (weatherData.daily) {
     dayElements.push(
@@ -59,7 +58,11 @@ function Home() {
         )}
       </div>
 
-      <div className="daily-weather">{dayElements}</div>
+      {dayElements.length ? (
+        <div className="daily-weather">{dayElements}</div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
