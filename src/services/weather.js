@@ -14,6 +14,7 @@ export const getCityWeather = async (lat, lon) => {
 export const getCityDetails = async (cityName) => {
   const response = await axios.get(GET_CITY_DETAILS(cityName), {
     params: {
+      limit: 5,
       appid: REACT_APP_APP_ID,
     },
   });

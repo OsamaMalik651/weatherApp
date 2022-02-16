@@ -35,7 +35,6 @@ function Home() {
       dispatch(getCity(searchTerm));
     }
   };
-  console.log(weatherData);
   const dayElements = [];
   if (weatherData.daily) {
     dayElements.push(

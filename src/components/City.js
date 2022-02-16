@@ -1,7 +1,8 @@
 import React from "react";
-import { getTimefromMS } from "../constants/functions";
+import { getTimefromMS } from "../constants/dateFunctions";
 import "../styles/City.css";
 import "../styles/weather-icons.min.css";
+import { LINKS } from "../constants";
 
 const City = ({ currentWeather, name, state, country }) => {
   const { sunrise, sunset, temp, feels_like, weather } = currentWeather;
@@ -11,6 +12,7 @@ const City = ({ currentWeather, name, state, country }) => {
 
   const todayWeather = weather[0].main;
   const weatherIcon = weather[0].icon;
+  const iconURL = LINKS.iconURL.path;
 
   return (
     <div className="city">
@@ -24,10 +26,7 @@ const City = ({ currentWeather, name, state, country }) => {
       <h5>Weather: {todayWeather}</h5>
       <i>
         {" "}
-        <img
-          src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-          alt="weather icon"
-        />
+        <img src={`${iconURL}${weatherIcon}@2x.png`} alt="weather icon" />
       </i>
       <div className="">
         <h5>Temperature {temp} &#8451;</h5>

@@ -8,9 +8,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
   padding: 10px;
   margin: 0 1rem;
+}
+.dayCard h2 {
+  font-weight: bold;
 }
 .dayCard-top {
   display: flex;
@@ -36,14 +39,15 @@
 
 .dayCard-bottom-right {
   flex: 1;
-
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
 }
-
+.dayCard-bottom-right h4 {
+  font-weight: bold;
+}
 .dayCard-bottom-right > p {
   font-size: 1rem;
   text-align: center;
