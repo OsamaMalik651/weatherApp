@@ -1,2 +1,5 @@
-export const GET_WEATHER_BY_CITY = (lat = 51, lon = -114) =>
-  `/forecast?lat=${lat}.05&lon=${lon}`;
+export const GET_WEATHER_BY_CITY = (lat = 51.05, lon = -114.07) =>
+  `/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts`;
+
+export const GET_CITY_DETAILS = (cityName = "Calgary") =>
+  `/geo/1.0/direct?q=${cityName}&limit=5`;

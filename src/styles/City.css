@@ -1,0 +1,10 @@
+.city {
+  max-width: 80vw;
+  display: flex;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
+  flex-wrap: wrap;
+}
