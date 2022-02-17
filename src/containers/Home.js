@@ -58,7 +58,7 @@ function Home() {
       </div>
 
       {dayElements.length ? (
-        <div className="daily-weather">{dayElements}</div>
+        <div className="daily-weather shadow">{dayElements}</div>
       ) : (
         ""
       )}
