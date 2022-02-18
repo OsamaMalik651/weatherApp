@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem;
+}
+.city-current-weather {
+  width: 80vw;
+}
+.daily-weather {
+  display: flex;
+  align-items: center;
+  height: 25rem;
+  overflow: auto;
+  margin: 1rem;
+  width: 80vw;
+  border: 1px solid black;
+  border-radius: 5px;
+}
