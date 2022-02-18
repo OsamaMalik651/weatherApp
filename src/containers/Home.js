@@ -44,8 +44,7 @@ function Home() {
 
   return (
     <div className="home">
-      {/* Search Component */}
-      <Search onClick={(event) => getWeatherData(event)} />
+      <Search onSearchButtonClick={(event) => getWeatherData(event)} />
       <div className="city-current-weather">
         {weatherData.current && (
           <City

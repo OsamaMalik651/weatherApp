@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button, Card, CardBody, Input } from "reactstrap";
-const Search = ({ onClick }) => {
+const Search = ({ onSearchButtonClick }) => {
   const [cityName, setCityName] = useState("");
   const handleChange = (event) => {
     setCityName(event.target.value);
   };
   const handleSubmit = () => {
-    onClick(cityName);
+    onSearchButtonClick(cityName);
   };
 
   return (
@@ -23,7 +23,7 @@ const Search = ({ onClick }) => {
           color="success"
           outline
           className="fw-bold mw-auto"
-          onClick={() => handleSubmit()}
+          onClick={handleSubmit}
         >
           Get Weather
         </Button>

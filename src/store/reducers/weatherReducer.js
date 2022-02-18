@@ -1,3 +1,5 @@
+import { actionTypes } from "../action-types";
+
 const initialState = {
   cod: "",
   message: 0,
@@ -8,7 +10,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "GET_WEATHER":
+    case actionTypes.GET_WEATHER:
       return action.payload;
     default:
       return state;
