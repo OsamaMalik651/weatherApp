@@ -2,3 +2,22 @@
   min-height: 20rem;
   min-width: 15rem;
 }
+.dayCard:hover {
+  transform: scale(1.05);
+  transition-duration: 0.2s;
+}
+.dayCard--link {
+  text-decoration: none;
+  color: inherit;
+}
+.dayCard--link :hover {
+  color: initial;
+}
+.dayCard--inactive {
+  text-decoration: none;
+  color: inherit;
+}
+.dayCard--inactive :hover {
+  color: initial;
+  cursor: auto;
+}
