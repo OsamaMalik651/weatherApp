@@ -1,7 +1,7 @@
 import React from "react";
 import { getTimefromMS } from "../constants/dateFunctions";
 import "../styles/weather-icons.min.css";
-import { LINKS } from "../constants";
+import { iconURL } from "../constants";
 import { Card, Col, Row } from "reactstrap";
 
 const City = ({ currentWeather, name, state, country }) => {
@@ -12,7 +12,6 @@ const City = ({ currentWeather, name, state, country }) => {
 
   const todayWeather = weather[0].main;
   const weatherIcon = weather[0].icon;
-  const iconURL = LINKS.iconURL.path;
 
   return (
     <Card className="shadow border border-dark">

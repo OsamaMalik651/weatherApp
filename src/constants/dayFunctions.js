@@ -4,7 +4,7 @@ export const getWeatherWithDates = (HourlyData) => {
   const weatherWithDates = HourlyData.map((item) => {
     let updatedDates = {
       ...item,
-      dt: getTimefromMS(item.dt),
+      time: getTimefromMS(item.dt),
       date: getDateFromMs(item.dt),
       day: getDayName(item.dt),
     };

@@ -5,7 +5,7 @@ import {
   getTimefromMS,
 } from "../constants/dateFunctions";
 import "../styles/DayCard.css";
-import { LINKS } from "../constants";
+import { iconURL } from "../constants";
 import {
   Card,
   CardBody,
@@ -21,7 +21,6 @@ const DayCard = ({ day, isActive }) => {
   const date = getDateFromMs(day.dt);
   const time = getTimefromMS(day.dt);
   const weather = day.weather[0];
-  const iconURL = LINKS.iconURL.path;
 
   return (
     <Card
@@ -32,7 +31,7 @@ const DayCard = ({ day, isActive }) => {
     >
       <Link
         to={isActive ? `/${dayName}` : "#"}
-        className={`${!isActive ? "dayCard--inactive" : "dayCard--link"}`}
+        className={`${isActive ? "dayCard--link" : "dayCard--inactive"}`}
       >
         <CardBody className="text-center">
           <CardTitle tag="h2" className="fw-bold m-1">

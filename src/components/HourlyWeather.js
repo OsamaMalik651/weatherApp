@@ -3,18 +3,14 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Container } from "reactstrap";
 import { getHourlyWeatherDetails, getWeatherWithDates } from "../constants";
-import {
-  getDateFromMs,
-  getDayName,
-  getTimefromMS,
-} from "../constants/dateFunctions";
+
 import HourlyCard from "./HourlyCard";
 
 const HourlyWeather = () => {
   const weather = useSelector((state) => state.weather);
   const [hourlyWeatherData, setHourlyWeatherData] = useState(weather.hourly);
 
-  const selectedDay = useParams().dayName;
+  const { dayName: selectedDay } = useParams();
 
   const weatherWithDates = getWeatherWithDates(hourlyWeatherData);
 
