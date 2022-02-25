@@ -7,6 +7,8 @@ import City from "../components/City.js";
 import DayCard from "../components/DayCard.js";
 import Search from "../components/Search.js";
 import "../styles/Home.css";
+import { getDaysWithHourlyDetails } from "../constants";
+import { getDateFromMs } from "../constants/dateFunctions";
 
 function Home() {
   const dispatch = useDispatch();
@@ -15,7 +17,6 @@ function Home() {
 
   const [weatherData, setWeatherData] = useState(weather);
   const [currentCity, setCurrentCity] = useState(city);
-
   useEffect(() => {
     setWeatherData(weather);
   }, [weather]);
@@ -35,13 +36,21 @@ function Home() {
       dispatch(getCity(searchTerm));
     }
   };
+
   const dayElements = [];
   if (weatherData.daily) {
+    const daysWithHourlyDetails = getDaysWithHourlyDetails(weatherData.hourly);
     dayElements.push(
-      weatherData.daily.map((day, index) => <DayCard key={index} day={day} />)
+      weatherData.daily.map((day, index) => {
+        let date = getDateFromMs(day.dt);
+        if (daysWithHourlyDetails.includes(date)) {
+          return <DayCard key={index} day={day} isActive={true} />;
+        } else {
+          return <DayCard key={index} day={day} isActive={false} />;
+        }
+      })
     );
   }
-
   return (
     <div className="home">
       <Search onSearchButtonClick={(event) => getWeatherData(event)} />
