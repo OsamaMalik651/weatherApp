@@ -4,10 +4,9 @@ const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.GET_WEATHER:
+    case actionTypes.SET_SELECTEDCITY:
       return action.payload;
-    case actionTypes.CLEAR_WEATHER:
-      return (state = initialState);
+
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../containers/Home";
 import * as links from "../constants/index";
 import About from "./About";
-import HourlyWeather from "./HourlyWeather";
+import HourlyWeather from "../containers/HourlyWeather";
 
 function App() {
   const { home, about, hourly } = links.LINKS;
