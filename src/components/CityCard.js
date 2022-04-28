@@ -5,7 +5,7 @@ const CityCard = ({ citydetails, onClick }) => {
 
   const showAlert = () => {
     const selectedCity = citydetails;
-    onClick(onClick(selectedCity));
+    onClick(selectedCity);
   };
 
   return (

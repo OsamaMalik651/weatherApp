@@ -33,7 +33,7 @@ function Home() {
   const [dayArrayElements, setDayArrayElements] = useState([]);
 
   // Modal open state
-  const [modal, setModal] = React.useState(false);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     setWeatherData(weather);
@@ -53,24 +53,23 @@ function Home() {
   }, [dispatch, selectedCity]);
 
   useEffect(() => {
-    if (Object.keys(selectedCity).length) {
-      return;
-    }
-    if (city.length < 2) {
-      const cityForWeather = city[0];
-      if (cityForWeather) {
-        const lat = cityForWeather.lat;
-        const lon = cityForWeather.lon;
-        dispatch(getWeather(lat, lon));
-        setCurrentCity(cityForWeather);
-        dispatch(setSelectedCity(selectedCity));
+    if (!Object.keys(selectedCity).length) {
+      if (city.length < 2) {
+        const cityForWeather = city[0];
+        if (cityForWeather) {
+          const lat = cityForWeather.lat;
+          const lon = cityForWeather.lon;
+          dispatch(getWeather(lat, lon));
+          setCurrentCity(cityForWeather);
+          dispatch(setSelectedCity(selectedCity));
+        }
+        return;
       }
-      return;
-    }
 
-    if (city.length) {
-      makeCityElements(city);
-      toggle();
+      if (city.length) {
+        makeCityElements(city);
+        toggle();
+      }
     }
   }, [city]);
 

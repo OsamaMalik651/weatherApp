@@ -11,7 +11,6 @@ import { getWeather } from "../store/actions/weather";
 const HourlyWeather = () => {
   const dispatch = useDispatch();
   const weather = useSelector((state) => state.weather);
-  //const selectedCity = useSelector((state) => state.selectedCity);
 
   const { dayName: selectedDay } = useParams();
   const [searchParams] = useSearchParams();

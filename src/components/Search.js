@@ -21,7 +21,7 @@ const Search = ({ searchForCity, searchTerm, setSearchTerm }) => {
             color="success"
             outline
             className="fw-bold mw-auto"
-            onClick={handleSubmit}
+            type="submit"
           >
             Get Weather
           </Button>

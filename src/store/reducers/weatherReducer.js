@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
     case actionTypes.GET_WEATHER:
       return action.payload;
     case actionTypes.CLEAR_WEATHER:
-      return (state = initialState);
+      return { ...state, ...initialState };
     default:
       return state;
   }
