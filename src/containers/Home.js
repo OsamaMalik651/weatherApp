@@ -34,7 +34,6 @@ function Home() {
 
   // Modal open state
   const [modal, setModal] = useState(false);
-
   useEffect(() => {
     setWeatherData(weather);
   }, [weather]);
@@ -63,10 +62,7 @@ function Home() {
           setCurrentCity(cityForWeather);
           dispatch(setSelectedCity(selectedCity));
         }
-        return;
-      }
-
-      if (city.length) {
+      } else if (city.length) {
         makeCityElements(city);
         toggle();
       }
@@ -156,7 +152,7 @@ function Home() {
         )}
       </div>
 
-      {weatherData.daily ? (
+      {weatherData.daily.length > 0 ? (
         <div className="daily-weather shadow">
           {dayArrayElements.map((day, index) => (
             <DayCard
