@@ -22,3 +22,15 @@ export const getDaysWithHourlyDetails = (HourlyData) => {
 export const getHourlyWeatherDetails = (weatherWithDates, selectedDay) => {
   return weatherWithDates.filter((item) => item.day === selectedDay);
 };
+
+export const getCityAsURL = (city) => {
+  //Keeping only name, lat, lon,parameters
+  const { local_names, country, state, ...cityParameters } = city;
+  const queryString = Object.keys(cityParameters)
+    .map(
+      (key) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(cityParameters[key])}`
+    )
+    .join("&");
+  return queryString;
+};

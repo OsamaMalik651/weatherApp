@@ -5,23 +5,22 @@ import {
   getTimefromMS,
 } from "../constants/dateFunctions";
 import "../styles/DayCard.css";
-import { iconURL } from "../constants";
+import { getCityAsURL, iconURL } from "../constants";
 import {
   Card,
   CardBody,
   CardColumns,
   CardSubtitle,
-  CardText,
   CardTitle,
 } from "reactstrap";
 import { Link, Outlet } from "react-router-dom";
 
-const DayCard = ({ day, isActive }) => {
+const DayCard = ({ day, city, isActive }) => {
   const dayName = getDayName(day.dt);
   const date = getDateFromMs(day.dt);
   const time = getTimefromMS(day.dt);
   const weather = day.weather[0];
-
+  const query = getCityAsURL(city);
   return (
     <Card
       className="m-2 shadow dayCard"
@@ -30,7 +29,7 @@ const DayCard = ({ day, isActive }) => {
       id="weatherDesciption"
     >
       <Link
-        to={isActive ? `/${dayName}` : "#"}
+        to={isActive ? `/${dayName}?${query}` : "#"}
         className={`${isActive ? "dayCard--link" : "dayCard--inactive"}`}
       >
         <CardBody className="text-center">
@@ -41,14 +40,14 @@ const DayCard = ({ day, isActive }) => {
             <CardColumns>{date}</CardColumns>
             <CardColumns>{time}</CardColumns>
           </CardSubtitle>
-          <CardText className="d d-flex justify-content-between mt-2 m-1">
+          <CardColumns className="d d-flex justify-content-between mt-2 m-1">
             <CardColumns>Temp: {day.temp.day}</CardColumns>
             <CardColumns className="p-1">
               <h6>Max : {day.temp.max}&#8451;</h6>
               <h6>Min : {day.temp.min}&#8451;</h6>
             </CardColumns>
-          </CardText>
-          <CardText className="d d-flex justify-content-around align-items-center mt-3">
+          </CardColumns>
+          <CardColumns className="d d-flex justify-content-around align-items-center mt-3">
             <CardColumns>
               <img
                 src={`${iconURL}${weather.icon}@2x.png`}
@@ -59,7 +58,7 @@ const DayCard = ({ day, isActive }) => {
               <h4 className="fw-bold">{weather.main}</h4>
               <h6>{weather.description}</h6>
             </CardColumns>
-          </CardText>
+          </CardColumns>
         </CardBody>
       </Link>
       <Outlet />
